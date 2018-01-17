@@ -36,7 +36,7 @@ before_install:
       brew update;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      apt-get update;
+      sudo apt-get update;
     fi
 
 install:
@@ -44,7 +44,7 @@ install:
         brew install gcc49 --without-multilib;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-        apt-get install -y git g++-4.7 openjdk-7-jdk make;
+        sudo apt-get install -y git g++-4.7 openjdk-7-jdk make;
     fi
 
 script:
