@@ -60,10 +60,13 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: 4b6603199a344a7596bfdb53e801a5b42795c58a
+    secure: QhpgTqzNOcd9nynyQJ6LiKECezwRZaFqSHPb5fTGKdn98MF+7pAFW4ta2kbg3pyPqCjlzTexKdU0Ro3QyWsvzZ1ss5l1gQm1r7D0ELj0foobW62M3Niu7uhxGharMSgIyO0mTWh3+XgOGZU8/v0N8G/FMiGpBmDv2Vn/dK3atDVkfjCYZBst7Nkqavn0m1OuqOkhE4JM4SOFhTnn5AsiNO46hRSn0R6kVH9Ynmxyd7KcAH8MBDfOBuJd/BsYgJhpt5MYS2xGYHB/93Dgiz/9gM643+KKfY94BvMtG8NGLYhci7/UuQng4/NKTo8ptviGCqgMxnSO55ddjFHIIHPTdHv0j8pn7s9XLk8kmIr9HRdudYsJDRXu/C/zz3t7qqQsVpQ/TAe2+wFLDppdaMpIpX8vJ3mPNzP5ICA7o040bB/S5bfvs6Y5S9w6zIYEXlNbg+FvLYwXI42H2g57dQ7IOhwB8okWQK0GEZMOBHvcM3c7Oyh+Gdn7lwI+XEcAgLEGqspnWXTbD7mXQTiVFyLomUkjvzACwxHVu+qCyssR+XtlFoMj2Syl9laqN9C1sPTvIj/enO3emypzpJXhg4+xISVM8Hi2hxRSyiAl0fGx9v77nZkYnvvel+QKlJfiKC6bnNKQkvnVo9W3VJY3V0sXFEa/iv+fmc9bFQPlZJ6LXK4=
   file:
     - xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
+  on:
+    repo: myui/build-xgboost-jvm
   skip_cleanup: true # do not delete the built assets
   overwrite: true
   on:
     tags: true
+
