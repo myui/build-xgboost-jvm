@@ -48,7 +48,7 @@ install:
         brew install cmake;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-        sudo apt-get install -y git g++-4.7 make cmake;
+        sudo apt-get install -y git g++-5 make cmake;
     fi
 
 script:
@@ -56,7 +56,7 @@ script:
         CC=`which gcc-4.9` CXX=`which g++-4.9` sh scripts/build.sh;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-        CC=`which gcc-4.7` CXX=`which g++-4.7` sh scripts/build.sh;
+        CC=`which gcc-5` CXX=`which g++-5` sh scripts/build.sh;
     fi
 
 deploy:
