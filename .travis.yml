@@ -18,7 +18,8 @@ matrix:
       sudo: false
       dist: trusty
       group: deprecated-2017Q4
-      jdk: openjdk7
+      jdk: 
+        - openjdk7
     - os: osx
       osx_image: xcode8
 
