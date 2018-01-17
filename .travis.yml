@@ -11,6 +11,13 @@ jdk:
   - oraclejdk7
 # - openjdk7
 
+# Caching so the next build will be fast too.
+cache:
+  apt: true
+  directories:
+    - $HOME/.m2
+    - $HOME/Library/Caches/Homebrew
+
 matrix:
   include:
     - os: linux
