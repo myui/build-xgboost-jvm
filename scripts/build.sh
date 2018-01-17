@@ -3,16 +3,16 @@ git clone --recursive --branch v${XGBOOST_VERSION} --depth 1 --single-branch htt
 cd xgboost/
 
 cat make/config.mk | sed -e 's/USE_OPENMP = 1/USE_OPENMP = 0/' > config.mk
-sed -i '' -e 's/LINK_LIBRARIES dmlccore/LINK_LIBRARIES dmlc/' CMakeLists.txt
-sed -i '' -e 's/find_package(OpenMP)/#find_package(OpenMP)/' CMakeLists.txt
-sed -i '' -e 's/${CMAKE_CXX_FLAGS} -funroll-loops/${CMAKE_CXX_FLAGS} -funroll-loops -static-libgcc -static-libstdc++ -fvisibility=hidden/' CMakeLists.txt
+sed -i -e 's/LINK_LIBRARIES dmlccore/LINK_LIBRARIES dmlc/' CMakeLists.txt
+sed -i -e 's/find_package(OpenMP)/#find_package(OpenMP)/' CMakeLists.txt
+sed -i -e 's/${CMAKE_CXX_FLAGS} -funroll-loops/${CMAKE_CXX_FLAGS} -funroll-loops -static-libgcc -static-libstdc++ -fvisibility=hidden/' CMakeLists.txt
 
 cd dmlc-core/
 # https://github.com/dmlc/dmlc-core/commit/2777ad99d823848cbce6354688b397d519f7b810
 git checkout ${DMLC_CORE_COMMIT_HASH}
 
 cd ../jvm-packages
-sed -i '' -e 's/"USE_OPENMP": "ON"/"USE_OPENMP": "OFF"/' create_jni.py 
+sed -i -e 's/"USE_OPENMP": "ON"/"USE_OPENMP": "OFF"/' create_jni.py
 
 export USE_OPENMP=0
 ./create_jni.py
