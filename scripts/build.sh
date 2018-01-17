@@ -16,7 +16,6 @@ sed -i '' -e 's/"USE_OPENMP": "ON"/"USE_OPENMP": "OFF"/' create_jni.py
 
 export USE_OPENMP=0
 ./create_jni.py
-ldd xgboost4j/src/main/resources/lib/libxgboost4j.dylib
 
 mvn -pl :xgboost4j package
 
