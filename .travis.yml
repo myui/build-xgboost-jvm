@@ -8,8 +8,8 @@ env:
 
 language: java
 jdk:
-  - oraclejdk7
-# - openjdk7
+# - oraclejdk7
+  - openjdk7
 
 # Caching so the next build will be fast too.
 cache:
@@ -49,11 +49,9 @@ install:
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-        export JAVA_HOME=`/usr/libexec/java_home -v 1.7`;
         CC=`which gcc-4.9` CXX=`which g++-4.9` sh scripts/build.sh;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-8-oracle;
         CC=`which gcc-4.7` CXX=`which g++-4.7` sh scripts/build.sh;
     fi
 
