@@ -4,8 +4,6 @@ env:
    - DMLC_CORE_COMMIT_HASH=2777ad99d823848cbce6354688b397d519f7b810
 
 language: java
-jdk:
-  - openjdk7
 
 # Caching so the next build will be fast too.
 cache:
@@ -20,6 +18,7 @@ matrix:
       sudo: false
       dist: trusty
       group: deprecated-2017Q4
+      jdk: openjdk7
     - os: osx
       osx_image: xcode8
 
@@ -40,7 +39,6 @@ before_install:
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-        # brew install -y gcc49 --without-multilib;
         brew install -y cmake;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
@@ -48,9 +46,8 @@ install:
     fi
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; the
-        # CC=`which gcc-4.9` CXX=`which g++-4.9` sh scripts/build_osx.sh;
-        sh scripts/build.sh;   # clang
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+        sh scripts/build.sh;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
         CC=`which gcc-4.9` CXX=`which g++-4.9` sh scripts/build_trusty.sh;
@@ -64,8 +61,7 @@ deploy:
     - xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
   on:
     repo: myui/build-xgboost-jvm
+    tags: true
   skip_cleanup: true # do not delete the built assets
   overwrite: true
-  on:
-    tags: true
 
