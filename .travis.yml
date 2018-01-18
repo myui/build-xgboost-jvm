@@ -41,7 +41,7 @@ install:
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-        sh scripts/build.sh;
+        sh scripts/build_osx.sh;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
         CC=`which gcc-4.9` CXX=`which g++-4.9` sh scripts/build_trusty.sh;
