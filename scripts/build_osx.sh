@@ -27,9 +27,6 @@ export USE_OPENMP=0
 ./create_jni.py
 otool -L xgboost4j/src/main/resources/lib/libxgboost4j.dylib
 
-mkdir -p $TRAVIS_BUILD_DIR/lib
-cp xgboost4j/src/main/resources/lib/libxgboost4j.dylib $TRAVIS_BUILD_DIR/lib
-
 mvn -pl :xgboost4j package
 
 cp xgboost4j/target/xgboost4j-$XGBOOST_VERSION.jar $TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
@@ -49,6 +46,7 @@ mv xgboost4j/target/xgboost4j-$XGBOOST_VERSION.jar $TRAVIS_BUILD_DIR/
 
 cd $TRAVIS_BUILD_DIR
 jar uf xgboost4j-$XGBOOST_VERSION.jar lib/libxgboost4j.so
+echo 'jar tf xgboost4j-$XGBOOST_VERSION.jar | grep libxgboost4j'
 jar tf xgboost4j-$XGBOOST_VERSION.jar | grep libxgboost4j
 
 mvn deploy:deploy-file \

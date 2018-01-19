@@ -1,3 +1,11 @@
+if [ ! -f "$TRAVIS_BUILD_DIR/settings.xml" ]; then
+  echo "$TRAVIS_BUILD_DIR/settings.xml does not found"
+  echo "ls $TRAVIS_BUILD_DIR"
+  ls $TRAVIS_BUILD_DIR
+  echo "pwd=`pwd`"
+  exit 1
+fi
+
 git clone --recursive --branch v${XGBOOST_VERSION} --depth 1 --single-branch https://github.com/dmlc/xgboost
 
 cd xgboost/
