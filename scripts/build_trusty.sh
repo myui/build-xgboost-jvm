@@ -19,6 +19,20 @@ export USE_OPENMP=0
 ./create_jni.py
 ldd xgboost4j/src/main/resources/lib/libxgboost4j.so
 
+mkdir -p $TRAVIS_BUILD_DIR/lib
+cp xgboost4j/src/main/resources/lib/libxgboost4j.so $TRAVIS_BUILD_DIR/lib
+
 mvn -pl :xgboost4j package
 
 mv xgboost4j/target/xgboost4j-$XGBOOST_VERSION.jar $TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
+
+mvn deploy:deploy-file \
+  -s $TRAVIS_BUILD_DIR/settings.xml \
+  -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
+  -DrepositoryId=sonatype-nexus-staging \
+  -Dfile=$TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar \
+  -DgroupId=io.github.myui \
+  -DartifactId=xgboost4j \
+  -Dversion=$XGBOOST_VERSION-$RC_NUMBER-$TRAVIS_OS_NAME \
+  -Dpackaging=jar \
+  -DgeneratePom=true
