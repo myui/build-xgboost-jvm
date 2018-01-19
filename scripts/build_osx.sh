@@ -1,5 +1,5 @@
-if [ ! -f "$TRAVIS_BUILD_DIR/lib/libxgboost4j.so" ]; then
-  echo "$TRAVIS_BUILD_DIR/lib/libxgboost4j.so does not found"
+if [ ! -f "$TRAVIS_BUILD_DIR/settings.xml" ]; then
+  echo "$TRAVIS_BUILD_DIR/settings.xml does not found"
   echo "ls $TRAVIS_BUILD_DIR"
   ls $TRAVIS_BUILD_DIR
   echo "pwd=`pwd`"
@@ -29,7 +29,7 @@ otool -L xgboost4j/src/main/resources/lib/libxgboost4j.dylib
 
 mvn -pl :xgboost4j package
 
-cp xgboost4j/target/xgboost4j-$XGBOOST_VERSION.jar $TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
+mv xgboost4j/target/xgboost4j-$XGBOOST_VERSION.jar $TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
 
 mvn deploy:deploy-file \
   -s $TRAVIS_BUILD_DIR/settings.xml \
@@ -39,23 +39,5 @@ mvn deploy:deploy-file \
   -DgroupId=io.github.myui \
   -DartifactId=xgboost4j \
   -Dversion=$XGBOOST_VERSION-rc${RC_NUMBER}-$TRAVIS_OS_NAME \
-  -Dpackaging=jar \
-  -DgeneratePom=true
-
-mv xgboost4j/target/xgboost4j-$XGBOOST_VERSION.jar $TRAVIS_BUILD_DIR/
-
-cd $TRAVIS_BUILD_DIR
-jar uf xgboost4j-$XGBOOST_VERSION.jar lib/libxgboost4j.so
-echo 'jar tf xgboost4j-$XGBOOST_VERSION.jar | grep libxgboost4j'
-jar tf xgboost4j-$XGBOOST_VERSION.jar | grep libxgboost4j
-
-mvn deploy:deploy-file \
-  -s $TRAVIS_BUILD_DIR/settings.xml \
-  -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
-  -DrepositoryId=sonatype-nexus-staging \
-  -Dfile=$TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION.jar \
-  -DgroupId=io.github.myui \
-  -DartifactId=xgboost4j \
-  -Dversion=$XGBOOST_VERSION-rc${RC_NUMBER} \
   -Dpackaging=jar \
   -DgeneratePom=true
