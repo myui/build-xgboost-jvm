@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+
+ <groupId>io.github.myui</groupId>
+ <artifactId>xgboost4j</artifactId>
+ <version>0.7-rc1</version>
+ <packaging>jar</packaging>
+
+ <name>xgboost4j</name>
+ <description>xgboost4j containing portable Linux/MacOSX binaries</description>
+ <url>https://github.com/myui/build-xgboost-jvm</url>
+ <licenses>
+  <license>
+   <name>The Apache Software License, Version 2.0</name>
+   <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+  </license>
+ </licenses>
+ <developers>
+  <developer>
+   <name>Makoto Yui</name>
+   <email>myui[at]apache.org</email>
+   <organization>Treasure Data, Inc.</organization>
+   <organizationUrl>https://www.treasuredata.com/</organizationUrl>
+  </developer>
+ </developers>
+ <scm>
+  <connection>scm:git:git://github.com/myui/build-xgboost-jvm.git</connection>
+  <developerConnection>scm:git:ssh://github.com/myui/build-xgboost-jvm.git</developerConnection>
+  <url>https://github.com/myui/build-xgboost-jvm</url>
+ </scm>
+
+ <distributionManagement>
+  <snapshotRepository>
+   <id>sonatype-nexus-snapshots</id>
+   <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  </snapshotRepository>
+  <repository>
+   <id>sonatype-nexus-staging</id>
+   <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+  </repository>
+ </distributionManagement>
+
+</project>
