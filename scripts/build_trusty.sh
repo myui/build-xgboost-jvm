@@ -41,6 +41,6 @@ mvn deploy:deploy-file \
   -Dfile=$TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar \
   -DgroupId=io.github.myui \
   -DartifactId=xgboost4j \
-  -Dversion=$XGBOOST_VERSION-$RC_NUMBER-$TRAVIS_OS_NAME \
+  -Dversion=$XGBOOST_VERSION-rc${RC_NUMBER}-$TRAVIS_OS_NAME \
   -Dpackaging=jar \
   -DgeneratePom=true
