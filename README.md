@@ -1,7 +1,14 @@
-This project publishes xgboost4j to Maven central that contains portable binaries for MacOSX and Linux. 
-DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as seen in [this issue](https://github.com/dmlc/xgboost/issues/1807), it is not published to maven central yet.
+# build-xgboost-jvm
+[![Build Status](https://travis-ci.org/myui/build-xgboost-jvm.svg?branch=master)](https://travis-ci.org/myui/build-xgboost-jvm)
+
+Repository to build xgboost4j for Linux/MacOSX using TravisCI. 
+
+When pushing a tag to git, TravisCI automatically creates a release.
 
 # Using xgboost4j
+
+This project publishes xgboost4j to Maven central that contains portable binaries for MacOSX and Linux. 
+DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as seen in [this issue](https://github.com/dmlc/xgboost/issues/1807), it is not published to maven central yet.
 
 ```
 <dependency>
@@ -11,14 +18,9 @@ DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as se
 </dependency>
 ```
 
-# build-xgboost-jvm
-[![Build Status](https://travis-ci.org/myui/build-xgboost-jvm.svg?branch=master)](https://travis-ci.org/myui/build-xgboost-jvm)
+# Portability
 
-Repository to build xgboost4j for Linux/MacOSX using TravisCI
-
-When pushing a tag to git, TravisCI automatically creates a release.
-
-Compilied shared libraries (i.e., libxgboost4j.dylib|so) are a portable one without dependencies to openmp and libc++ (for linux) as follows:
+Compilied shared libraries (i.e., libxgboost4j.dylib|so) are a portable one without dependencies to OpenMP and libc++ (for linux) as follows:
 
 ```sh
 xgboost4j/src/main/resources/lib/libxgboost4j.dylib:
