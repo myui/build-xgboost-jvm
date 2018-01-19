@@ -1,5 +1,7 @@
 # build-xgboost-jvm
-[![Build Status](https://travis-ci.org/myui/build-xgboost-jvm.svg?branch=master)](https://travis-ci.org/myui/build-xgboost-jvm)
+[![Build Status](https://travis-ci.org/myui/build-xgboost-jvm.svg?branch=master)](https://travis-ci.org/myui/build-xgboost-jvm) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.myui/xgboost4j/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.myui%22%20a%3Axgboost4j) 
+[![License](http://img.shields.io/:license-Apache_v2-blue.svg)](https://github.com/myui/build-xgboost-jvm/blob/master/LICENSE)
 
 Repository to build xgboost4j for Linux/MacOSX using TravisCI. 
 
