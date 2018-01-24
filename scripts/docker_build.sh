@@ -24,4 +24,3 @@ find . -name pom.xml | xargs sed -i -e "s|<version>0.8-SNAPSHOT</version>|<versi
 
 mvn -pl :xgboost4j package javadoc:jar source:jar
 
-cp xgboost4j/target/xgboost4j-*.jar /mnt/host/tmp/
