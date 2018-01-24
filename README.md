@@ -1,7 +1,16 @@
-This project publishes xgboost4j to Maven central that contains portable binaries for MacOSX and Linux. 
-DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as seen in [this issue](https://github.com/dmlc/xgboost/issues/1807), it is not published to maven central yet.
+# build-xgboost-jvm
+[![Build Status](https://travis-ci.org/myui/build-xgboost-jvm.svg?branch=master)](https://travis-ci.org/myui/build-xgboost-jvm) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.myui/xgboost4j/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.myui%22%20a%3Axgboost4j) 
+[![License](http://img.shields.io/:license-Apache_v2-blue.svg)](https://github.com/myui/build-xgboost-jvm/blob/master/LICENSE)
+
+Repository to build xgboost4j for Linux/MacOSX using TravisCI. 
+
+When pushing a tag to git, TravisCI automatically creates a release.
 
 # Using xgboost4j
+
+This project publishes xgboost4j to Maven central that contains portable binaries for MacOSX and Linux. 
+DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as seen in [this issue](https://github.com/dmlc/xgboost/issues/1807), it is not published to maven central yet.
 
 ```
 <dependency>
@@ -11,14 +20,8 @@ DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as se
 </dependency>
 ```
 
-# build-xgboost-jvm
-[![Build Status](https://travis-ci.org/myui/build-xgboost-jvm.svg?branch=master)](https://travis-ci.org/myui/build-xgboost-jvm)
+# Portability
 
-Repository to build xgboost4j for Linux/MacOSX using TravisCI
-
-When pushing a tag to git, TravisCI automatically creates a release.
-
-```
 # Update shared library in jar
 jar uf xgboost4j-0.7-rc2.jar lib/libxgboost4j.dylib
 jar tf xgboost4j-0.7-rc2.jar | grep libxgboost4j
