@@ -61,6 +61,7 @@ You can find requirements in your environment by `strings /lib/x86_64-linux-gnu/
 ## Release to Staging
 
 ```sh
+export NEXUS_PASSWD=xxxx
 export XGBOOST_VERSION=0.7
 export RC_NUMBER=2
 
