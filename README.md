@@ -18,7 +18,14 @@ Repository to build xgboost4j for Linux/MacOSX using TravisCI
 
 When pushing a tag to git, TravisCI automatically creates a release.
 
+```
+# Update shared library in jar
+jar uf xgboost4j-0.7-rc2.jar lib/libxgboost4j.dylib
+jar tf xgboost4j-0.7-rc2.jar | grep libxgboost4j
+```
+
 Compilied shared libraries (i.e., libxgboost4j.dylib|so) are a portable one without dependencies to openmp and libc++ (for linux) as follows:
+Minimum requirement for GLIBC is [2.15](https://abi-laboratory.pro/tracker/timeline/glibc/).
 
 ```sh
 xgboost4j/src/main/resources/lib/libxgboost4j.dylib:
@@ -33,23 +40,35 @@ xgboost4j/src/main/resources/lib/libxgboost4j.so:
     libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f6256c81000)
     libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f62568b8000)
     /lib64/ld-linux-x86-64.so.2 (0x00007f6257741000)
+
+$ strings xgboost4j/src/main/resources/lib/libxgboost4j.so | grep ^GLIBC | sort
+GLIBC_2.14
+GLIBC_2.15
+GLIBC_2.2.5
+GLIBC_2.3
+GLIBC_2.3.2
+GLIBC_2.3.4
+GLIBC_2.4
  ```
+ 
+You can find requirements in your environment by `strings /lib/x86_64-linux-gnu/libc.so.6 | grep ^GLIBC | sort`.
 
 # Release to Maven central
 
 ## Release to Staging
 
 ```sh
-export XGBOOST_VERSION=0.7-rc1
+export XGBOOST_VERSION=0.7
+export RC_NUMBER=2
 
 mvn gpg:sign-and-deploy-file \
   -s ./settings.xml \
   -DpomFile=./xgboost4j.pom \
   -DrepositoryId=sonatype-nexus-staging \
   -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
-  -Dfile=dist/${XGBOOST_VERSION}/xgboost4j-${XGBOOST_VERSION}.jar \
-  -Djavadoc=dist/${XGBOOST_VERSION}/xgboost4j-${XGBOOST_VERSION}-javadoc.jar \
-  -Dsources=dist/${XGBOOST_VERSION}/xgboost4j-${XGBOOST_VERSION}-sources.jar
+  -Dfile=dist/xgboost4j-${XGBOOST_VERSION}-rc${RC_NUMBER}.jar \
+  -Djavadoc=dist/xgboost4j-${XGBOOST_VERSION}-rc${RC_NUMBER}-javadoc.jar \
+  -Dsources=dist/xgboost4j-${XGBOOST_VERSION}-rc${RC_NUMBER}-sources.jar
 ```
 
 ## Release from Staging
