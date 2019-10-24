@@ -16,7 +16,7 @@ DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as se
 <dependency>
     <groupId>io.github.myui</groupId>
     <artifactId>xgboost4j</artifactId>
-    <version>0.7-rc1</version>
+    <version>0.7-rc3</version>
 </dependency>
 ```
 
