@@ -23,6 +23,7 @@ DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as se
 # Portability
 
 # Update shared library in jar
+```sh
 jar uf xgboost4j-0.7-rc2.jar lib/libxgboost4j.dylib
 jar tf xgboost4j-0.7-rc2.jar | grep libxgboost4j
 ```
