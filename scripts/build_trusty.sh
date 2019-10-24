@@ -19,6 +19,10 @@ export USE_OPENMP=0
 ./create_jni.py
 ldd xgboost4j/src/main/resources/lib/libxgboost4j.so
 
+rm xgboost4j/src/main/scala/ml/dmlc/xgboost4j/LabeledPoint.scala
+wget --no-check-certificate https://raw.githubusercontent.com/myui/build-xgboost-jvm/master/src/LabeledPoint.java
+mv LabeledPoint.java xgboost4j/src/main/java/ml/dmlc/xgboost4j/
+
 mvn -pl :xgboost4j package javadoc:jar source:jar
 
 mv xgboost4j/target/xgboost4j-$XGBOOST_VERSION.jar $TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
