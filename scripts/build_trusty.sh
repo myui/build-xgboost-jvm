@@ -26,3 +26,5 @@ mv LabeledPoint.java xgboost4j/src/main/java/ml/dmlc/xgboost4j/
 mvn -pl :xgboost4j package javadoc:jar source:jar
 
 mv xgboost4j/target/xgboost4j-$XGBOOST_VERSION.jar $TRAVIS_BUILD_DIR/xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
+mv xgboost4j/target/xgboost4j-$XGBOOST_VERSION-sources.jar $TRAVIS_BUILD_DIR/
+mv xgboost4j/target/xgboost4j-$XGBOOST_VERSION-javadoc.jar $TRAVIS_BUILD_DIR/
