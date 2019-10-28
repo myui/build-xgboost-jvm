@@ -70,6 +70,7 @@ deploy:
     secure: dJuA7rh/NHcTs9J6vqUn4lH6kFDBYX3KO+JPNCPDid2RTua+j7Hf4599BqzHoDkSr/hdhgCcGfajFYpIEzl7SjJQIi1rHTHeepEtBMh3gZmcRHo+zEVMsU3XyEWL9hX3vYYPSteCUZwILiklJTukadzznAKbcgjjAh5M7ImsVseYI0R7Orth9B5mQr8JtyEWVoF47fojWgA8S7ofHt/4/F9Lh9JpvNj4/UTx8nmCmDwflBRpyOvws65oTGVF7Nh6s0hwmchrzCyrCoiSmOS/u3TE9VGXfMIn8LcGknLsmQ2ct5OvBImbHzGgxtF0UFdSdTORdXnUcu0fCSZudxj2BPAlbmdgOQKyhtxPJ2RxrRw6VUaea0N13Su8EFgoQm7JVlUkCfP3LjyEcPZSq3UKKVcWAEm2U5QluOQmeoLqoySsDxJcfVDVGFkMqz/cTugWXShmU1fc2XVkEeSq1pmMpp2GXRgNss4w5Fhz45VAwlc1eo4LZ/KDOIKiD7nA9pImvrkwwTeWlvz3CfQ1Fgn8JE6NYZoNhQ0n4i7a2Nna53tfNbyu7z1eYMKXXH0wCrAaCHoYKK7bG2nuRkvgoO6bgYvKd7iXwcnZjKcNrPEHRLyQGm6LeXSUbC/Dw/OdR3dpkQtvNvvUFsqOkV5K5Qv7GA7jDaXP6Ulp+u5ovnBaOyk=
   file:
     - xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME-$TRAVIS_DIST.jar
+    - xgboost4j-$XGBOOST_VERSION-$TRAVIS_OS_NAME.jar
     - xgboost4j-$XGBOOST_VERSION-sources.jar
     - xgboost4j-$XGBOOST_VERSION-javadoc.jar
   on:
