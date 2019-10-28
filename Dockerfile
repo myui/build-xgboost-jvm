@@ -35,7 +35,7 @@ RUN set -eux && \
 	add-apt-repository -y ppa:george-edison55/precise-backports && \
 	add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 	apt-get update && \
-	apt-get install -y vim maven binutils git g++-4.9 openjdk-7-jdk make cmake libpthread-stubs0-dev && \
+	apt-get install -y vim maven wget binutils git g++-4.9 openjdk-7-jdk make cmake libpthread-stubs0-dev && \
 	export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 && \
 	update-alternatives --install `which java` java ${JAVA_HOME}/bin/java 1062 && \
 	CC=`which gcc-4.9` CXX=`which g++-4.9` sh -x ./docker_build.sh && \
