@@ -49,10 +49,10 @@ before_install:
     fi
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "trusty" ]]; then
+  - if [[ "$TRAVIS_DIST" == "trusty" ]]; then
         sudo apt-get install -y binutils git g++-4.9 make cmake libpthread-stubs0-dev;
     fi
-  - if [[ "$TRAVIS_OS_NAME" == "precise" ]]; then
+  - if [[ "$TRAVIS_DIST" == "precise" ]]; then
         sudo apt-get install -y binutils git g++-4.9 make cmake=3.2.3-5ppa5~precise1 cmake-data=3.2.3-5ppa5~precise1 libpthread-stubs0-dev;
     fi
 
