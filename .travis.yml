@@ -49,10 +49,7 @@ before_install:
     fi
 
 install:
-  - if [[ "$TRAVIS_DIST" == "trusty" ]]; then
-        sudo apt-get install -y binutils git g++-5 make cmake libpthread-stubs0-dev;
-    fi
-  - if [[ "$TRAVIS_DIST" == "precise" ]]; then
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
         sudo apt-get install -y binutils git g++-5 make cmake=3.3.2-1~precise3 cmake-data=3.3.2-1~precise3 libpthread-stubs0-dev;
     fi
 
