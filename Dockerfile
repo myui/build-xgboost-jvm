@@ -21,7 +21,6 @@ FROM ubuntu:precise
 MAINTAINER Makoto Yui <myui@apache.org>
 
 ENV XGBOOST_VERSION=0.90
-ENV RC_VERSION=1
 
 WORKDIR /work
 

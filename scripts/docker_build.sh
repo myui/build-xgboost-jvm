@@ -18,8 +18,6 @@ export USE_OPENMP=0
 ldd xgboost4j/src/main/resources/lib/libxgboost4j.so
 strings xgboost4j/src/main/resources/lib/libxgboost4j.so | grep ^GLIBC | sort
 
-find . -name pom.xml | xargs sed -i -e "s|<version>${XGBOOST_VERSION}</version>|<version>${XGBOOST_VERSION}-rc${RC_NUMBER}</version>|"
-
 rm xgboost4j/src/main/scala/ml/dmlc/xgboost4j/LabeledPoint.scala
 wget --no-check-certificate https://raw.githubusercontent.com/myui/build-xgboost-jvm/master/src/LabeledPoint.java
 mv LabeledPoint.java xgboost4j/src/main/java/ml/dmlc/xgboost4j/
