@@ -43,7 +43,7 @@ before_install:
     fi
   - if [[ "$TRAVIS_DIST" == "trusty" ]]; then
         sudo apt-get update;
-        sudo add-apt-repository ppa:corentinjabot/cmake-backport;
+        sudo add-apt-repository -y ppa:corentinjabot/cmake-backport;
         sudo apt-get update;
     fi
   - if [[ "$TRAVIS_DIST" == "precise" ]]; then
