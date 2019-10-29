@@ -31,6 +31,7 @@ RUN set -eux && \
     apt-get update && \
     apt-get install -y software-properties-common python-software-properties && \
 	add-apt-repository -y ppa:roblib/ppa && \
+	add-apt-repository =y ppa:git-core/ppa && \
 	add-apt-repository -y ppa:george-edison55/precise-backports && \
 	add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 	apt-get update && \

@@ -1,7 +1,6 @@
-git clone --recursive --depth 1 https://github.com/dmlc/xgboost
+git clone --recursive --branch v${XGBOOST_VERSION} --depth 1 https://github.com/dmlc/xgboost
 
 cd xgboost/
-git checkout -b v${XGBOOST_VERSION}
 
 cat make/config.mk | sed -e 's/USE_OPENMP = 1/USE_OPENMP = 0/' > config.mk
 sed -i -e 's/find_package(OpenMP)/find_package(Threads REQUIRED)/' CMakeLists.txt
