@@ -16,7 +16,7 @@ DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as se
 <dependency>
     <groupId>io.github.myui</groupId>
     <artifactId>xgboost4j</artifactId>
-    <version>0.7-rc5</version>
+    <version>0.9-rc1</version>
 </dependency>
 ```
 
@@ -24,8 +24,8 @@ DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as se
 
 # Update shared library in jar
 ```sh
-jar uf xgboost4j-0.7-rc2.jar lib/libxgboost4j.dylib
-jar tf xgboost4j-0.7-rc2.jar | grep libxgboost4j
+jar uf xgboost4j-0.9-rc1.jar lib/libxgboost4j.dylib
+jar tf xgboost4j-0.9-rc1.jar | grep libxgboost4j
 ```
 
 Compilied shared libraries (i.e., libxgboost4j.dylib|so) are a portable one without dependencies to openmp and libc++ (for linux) as follows:
@@ -39,15 +39,15 @@ xgboost4j/src/main/resources/lib/libxgboost4j.dylib:
     /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1226.10.1)
 
 xgboost4j/src/main/resources/lib/libxgboost4j.so:
-    linux-vdso.so.1 =>  (0x00007ffc54239000)
-    libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f6256e9f000)
-    libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f6256c81000)
-    libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f62568b8000)
-    /lib64/ld-linux-x86-64.so.2 (0x00007f6257741000)
+	linux-vdso.so.1 =>  (0x00007ffe475bc000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007f1ca5f8d000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f1ca5c91000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f1ca5a74000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f1ca56b3000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f1ca681d000)
 
 $ strings xgboost4j/src/main/resources/lib/libxgboost4j.so | grep ^GLIBC | sort
 GLIBC_2.14
-GLIBC_2.15
 GLIBC_2.2.5
 GLIBC_2.3
 GLIBC_2.3.2

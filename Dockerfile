@@ -20,9 +20,8 @@
 FROM ubuntu:precise
 MAINTAINER Makoto Yui <myui@apache.org>
 
-ENV XGBOOST_VERSION=0.7
-ENV RC_VERSION=5
-ENV DMLC_CORE_COMMIT_HASH=2777ad99d823848cbce6354688b397d519f7b810
+ENV XGBOOST_VERSION=0.90
+ENV RC_VERSION=1
 
 WORKDIR /work
 
@@ -31,14 +30,14 @@ COPY ./scripts/docker_build.sh .
 RUN set -eux && \
     apt-get update && \
     apt-get install -y software-properties-common python-software-properties && \
-	add-apt-repository -y ppa:george-edison55/cmake-3.x && \
+	add-apt-repository -y ppa:roblib/ppa && \
 	add-apt-repository -y ppa:george-edison55/precise-backports && \
 	add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 	apt-get update && \
-	apt-get install -y vim maven wget binutils git g++-4.9 openjdk-7-jdk make cmake libpthread-stubs0-dev && \
+	apt-get install -y vim maven wget binutils git g++-5 openjdk-7-jdk make cmake libpthread-stubs0-dev && \
 	export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 && \
 	update-alternatives --install `which java` java ${JAVA_HOME}/bin/java 1062 && \
-	CC=`which gcc-4.9` CXX=`which g++-4.9` sh -x ./docker_build.sh && \
+	CC=`which gcc-5` CXX=`which g++-5` sh -x ./docker_build.sh && \
 	rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* /root/.m2/*
 
 VOLUME ["/tmp", "/mnt/host/tmp"]
