@@ -28,20 +28,29 @@ public class LabeledPoint implements Serializable {
   private int[] indices;
   private float[] values;
   private float weight = 1.f;
-  private int group = -1;
-  private float baseMargin = Float.NaN;
 
+ /**
+  * Labeled training data point.
+  *
+  * @param label Label of this point.
+  * @param indices Feature indices of this point or `null` if the data is dense.
+  * @param values Feature values of this point.
+  */
   public LabeledPoint(float label, int[] indices, float[] values) {
-    if (indices == null || values == null) {
+    if (values == null) {
       throw new IllegalArgumentException("indices and values must not be null");
     }
-    if (indices.length != values.length) {
+    if (indices != null && indices.length != values.length) {
       throw new IllegalArgumentException(
         "indices and values must have the same number of elements");
     }
     this.label = label;
     this.indices = indices;
     this.values = values;
+  }
+
+  public LabeledPoint(float label, float[] values) {
+    this(label, null, values);
   }
 
   public float label() {
@@ -60,12 +69,8 @@ public class LabeledPoint implements Serializable {
     return weight;
   }
 
-  public int group() {
-    return group;
-  }
-
-  public float baseMargin() {
-    return baseMargin;
+  public void setWeight(float weight) {
+    this.weight = weight;
   }
 
 }
