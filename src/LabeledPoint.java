@@ -29,13 +29,13 @@ public class LabeledPoint implements Serializable {
   private float[] values;
   private float weight = 1.f;
 
- /**
-  * Labeled training data point.
-  *
-  * @param label Label of this point.
-  * @param indices Feature indices of this point or `null` if the data is dense.
-  * @param values Feature values of this point.
-  */
+  /**
+   * Create Labeled data point from a sparse vector.
+   *
+   * @param label The label of the data point.
+   * @param indices The indices
+   * @param values The values.
+   */
   public LabeledPoint(float label, int[] indices, float[] values) {
     if (values == null) {
       throw new IllegalArgumentException("indices and values must not be null");
@@ -49,6 +49,12 @@ public class LabeledPoint implements Serializable {
     this.values = values;
   }
 
+  /**
+   * Create Labeled data point from a dense vector.
+   *
+   * @param label The label of the data point.
+   * @param values The values.
+   */
   public LabeledPoint(float label, float[] values) {
     this(label, null, values);
   }
