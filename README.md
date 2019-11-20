@@ -16,7 +16,7 @@ DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as se
 <dependency>
     <groupId>io.github.myui</groupId>
     <artifactId>xgboost4j</artifactId>
-    <version>0.90-rc1</version>
+    <version>0.90-rc2</version>
 </dependency>
 ```
 
@@ -24,8 +24,8 @@ DMLC's [xgboost](https://github.com/dmlc/xgboost/) is a great library but, as se
 
 # Update shared library in jar
 ```sh
-jar uf xgboost4j-0.90-rc1.jar lib/libxgboost4j.dylib
-jar tf xgboost4j-0.90-rc1.jar | grep libxgboost4j
+jar uf xgboost4j-0.90-rc2.jar lib/libxgboost4j.dylib
+jar tf xgboost4j-0.90-rc2.jar | grep libxgboost4j
 ```
 
 Compilied shared libraries (i.e., libxgboost4j.dylib|so) are a portable one without dependencies to openmp and libc++ (for linux) as follows:

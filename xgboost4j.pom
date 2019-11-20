@@ -3,7 +3,7 @@
 
  <groupId>io.github.myui</groupId>
  <artifactId>xgboost4j</artifactId>
- <version>0.90-rc1</version>
+ <version>0.90-rc2</version>
  <packaging>jar</packaging>
 
  <name>xgboost4j</name>
